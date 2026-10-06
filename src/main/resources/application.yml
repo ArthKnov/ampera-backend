@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    default: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ampera
+    username: ampera
+    password: ampera
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+ampera:
+  jwt:
+    secret: "ampera-dev-secret-key-32bytes-min!!"
+    validade-ms: 86400000
+  mqtt:
+    url: tcp://localhost:1883
+    topico: ampera/+/medicao
+    client-id: ampera-backend
